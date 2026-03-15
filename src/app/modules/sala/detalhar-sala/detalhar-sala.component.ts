@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SalaService } from '../../../core/services/sala.service';
-import { MatCard, MatCardActions, MatCardContent, MatCardTitle } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,10 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-detalhar-sala',
   imports: [
     CommonModule,
-    MatCard,
-    MatCardTitle,
-    MatCardContent,
-    MatCardActions,
+    MatCardModule,
     MatTableModule,
     MatButtonModule,
     MatIconModule,

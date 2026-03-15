@@ -1,1 +1,114 @@
-<p>emprestimo works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Novo Empréstimo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="criarEmprestimo()" class="emprestimo-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Emprestador</mat-label>
+        <mat-select [(ngModel)]="novoEmprestimo.emprestadorId" name="emprestadorId">
+          <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
+            {{ jogador.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Tomador</mat-label>
+        <mat-select [(ngModel)]="novoEmprestimo.tomadorId" name="tomadorId">
+          <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
+            {{ jogador.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Valor</mat-label>
+        <input matInput type="number" [(ngModel)]="novoEmprestimo.valor" name="valor">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Juros (%)</mat-label>
+        <input matInput type="number" [(ngModel)]="novoEmprestimo.juros" name="juros">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Criar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Pagar Empréstimo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="pagarEmprestimo()" class="pagamento-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Empréstimo (ID)</mat-label>
+        <mat-select [(ngModel)]="pagamentoEmprestimo.emprestimoId" name="emprestimoId">
+          <mat-option *ngFor="let emp of emprestimos" [value]="emp.id">
+            ID: {{ emp.id }} - De: {{ emp.emprestador.nome }} Para: {{ emp.tomador.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Valor a Pagar</mat-label>
+        <input matInput type="number" [(ngModel)]="pagamentoEmprestimo.valor" name="valorPagamento">
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" type="submit">Pagar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Empréstimos Ativos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <table mat-table [dataSource]="emprestimos" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let emp"> {{ emp.id }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="emprestador">
+        <th mat-header-cell *matHeaderCellDef> Emprestador </th>
+        <td mat-cell *matCellDef="let emp"> {{ emp.emprestador.nome }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="tomador">
+        <th mat-header-cell *matHeaderCellDef> Tomador </th>
+        <td mat-cell *matCellDef="let emp"> {{ emp.tomador.nome }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="valor">
+        <th mat-header-cell *matHeaderCellDef> Valor Original </th>
+        <td mat-cell *matCellDef="let emp"> R$ {{ emp.valor | number:'1.2-2' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="juros">
+        <th mat-header-cell *matHeaderCellDef> Juros </th>
+        <td mat-cell *matCellDef="let emp"> {{ emp.juros }}% </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let emp">
+            -
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <p *ngIf="mensagem" [class.error]="mensagem.includes('Erro')" [class.success]="!mensagem.includes('Erro')">
+      {{ mensagem }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" [routerLink]="['/salas', salaId]">Voltar</button>
+  </mat-card-actions>
+</mat-card>
