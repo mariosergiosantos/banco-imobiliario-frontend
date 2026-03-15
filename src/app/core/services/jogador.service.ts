@@ -8,11 +8,11 @@ export class JogadorService {
 
   constructor(private readonly http: HttpClient) {}
 
-  listarJogadores(salaId: number): Observable<any> {
+  listarJogadores(salaId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/salas/${salaId}/jogadores`);
   }
 
-  adicionarJogador(salaId: number, nome: string): Observable<any> {
+  adicionarJogador(salaId: string, nome: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/jogadores`, { salaId, nome });
   }
 }

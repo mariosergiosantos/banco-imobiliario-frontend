@@ -8,7 +8,7 @@ export class PropriedadeService {
 
   constructor(private readonly http: HttpClient) {}
 
-  listarPropriedades(salaId: number): Observable<any> {
+  listarPropriedades(salaId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/salas/${salaId}/propriedades`);
   }
 
