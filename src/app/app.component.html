@@ -1,1 +1,11 @@
-<router-outlet />
+<mat-toolbar color="primary" class="main-toolbar">
+  <div class="toolbar-content">
+    <span class="app-title" [routerLink]="['/']">Banco Imobiliário</span>
+    <span class="spacer"></span>
+    <button mat-button [routerLink]="['/salas']">Minhas Salas</button>
+  </div>
+</mat-toolbar>
+
+<main class="main-container">
+  <router-outlet />
+</main>

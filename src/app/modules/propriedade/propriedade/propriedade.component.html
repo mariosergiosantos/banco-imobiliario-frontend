@@ -1,58 +1,72 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Propriedades da Sala {{ salaId }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <table mat-table [dataSource]="propriedades" class="mat-elevation-z8">
-      <ng-container matColumnDef="nome">
-        <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let propriedade"> {{ propriedade.nome }} </td>
-      </ng-container>
+<div class="header-dashboard">
+  <h1 class="room-title">Carteira de Propriedades</h1>
+  <button mat-button color="primary" [routerLink]="['/salas', salaId]">
+    <mat-icon>arrow_back</mat-icon> Dashboard
+  </button>
+</div>
 
-      <ng-container matColumnDef="valorCompra">
-        <th mat-header-cell *matHeaderCellDef> Valor </th>
-        <td mat-cell *matCellDef="let propriedade"> R$ {{ propriedade.valorCompra | number:'1.2-2' }} </td>
-      </ng-container>
+<mat-card class="table-card">
+  <table mat-table [dataSource]="propriedades" class="full-width">
 
-      <ng-container matColumnDef="cor">
-        <th mat-header-cell *matHeaderCellDef> Cor </th>
-        <td mat-cell *matCellDef="let propriedade">
-          <div [style.background-color]="propriedade.cor" style="width: 20px; height: 20px; border-radius: 50%;"></div>
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome da Propriedade </th>
+      <td mat-cell *matCellDef="let prop">
+        <div class="prop-name">
+          <div *ngIf="prop.cor" class="color-indicator" [style.background-color]="prop.cor"></div>
+          <strong>{{ prop.nome }}</strong>
+        </div>
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="hipotecada">
-        <th mat-header-cell *matHeaderCellDef> Hipotecada </th>
-        <td mat-cell *matCellDef="let propriedade"> {{ propriedade.hipotecada ? 'Sim' : 'Não' }} </td>
-      </ng-container>
+    <ng-container matColumnDef="valorCompra">
+      <th mat-header-cell *matHeaderCellDef> Valor de Mercado </th>
+      <td mat-cell *matCellDef="let prop"> R$ {{ prop.valorCompra | number:'1.2-2' }} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="dono">
-        <th mat-header-cell *matHeaderCellDef> Dono </th>
-        <td mat-cell *matCellDef="let propriedade"> {{ propriedade.dono?.nome || 'Banco' }} </td>
-      </ng-container>
+    <ng-container matColumnDef="cor">
+      <th mat-header-cell *matHeaderCellDef> Cor </th>
+      <td mat-cell *matCellDef="let prop"> {{ prop.cor || '-' }} </td>
+    </ng-container>
 
-      <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef> Transferir para </th>
-        <td mat-cell *matCellDef="let propriedade">
-          <mat-form-field appearance="fill">
-            <mat-select #novoDono (selectionChange)="transferirPropriedade(propriedade.id, novoDono.value)">
-              <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
-                {{ jogador.nome }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="hipotecada">
+      <th mat-header-cell *matHeaderCellDef> Hipotecada </th>
+      <td mat-cell *matCellDef="let prop">
+        <div class="hipotecada-status" [ngClass]="prop.hipotecada ? 'sim' : 'nao'">
+          <mat-icon class="icon-small">{{ prop.hipotecada ? 'check_circle' : 'cancel' }}</mat-icon>
+          {{ prop.hipotecada ? 'Sim' : 'Não' }}
+        </div>
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <ng-container matColumnDef="dono">
+      <th mat-header-cell *matHeaderCellDef> Proprietário Atual </th>
+      <td mat-cell *matCellDef="let prop">
+        <span *ngIf="prop.dono" class="owner-badge">{{ prop.dono.nome }}</span>
+        <span *ngIf="!prop.dono" class="no-owner">Livre para Compra</span>
+      </td>
+    </ng-container>
 
-    <p *ngIf="mensagem" [class.error]="mensagem.includes('Erro')" [class.success]="!mensagem.includes('Erro')">
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef> Realizar Transferência </th>
+      <td mat-cell *matCellDef="let prop">
+        <mat-form-field appearance="outline" class="transfer-form">
+          <mat-label>Novo Proprietário</mat-label>
+          <mat-select #novoDono (selectionChange)="transferirPropriedade(prop.id, novoDono.value)">
+            <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
+              {{ jogador.nome }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+
+  <div *ngIf="mensagem" class="status-msg">
+    <p [class.error]="mensagem.includes('Erro')" [class.success]="!mensagem.includes('Erro')">
       {{ mensagem }}
     </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button color="primary" [routerLink]="['/salas', salaId]">Voltar</button>
-  </mat-card-actions>
+  </div>
 </mat-card>

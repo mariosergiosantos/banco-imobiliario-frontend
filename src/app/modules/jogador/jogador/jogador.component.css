@@ -1,0 +1,35 @@
+.form-card {
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+  padding: 24px;
+}
+
+.add-player-form {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-player-form mat-form-field {
+  flex-grow: 1;
+}
+
+.status-msg {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+}

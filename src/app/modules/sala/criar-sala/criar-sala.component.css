@@ -1,0 +1,22 @@
+.criar-sala-card {
+  max-width: 500px;
+  margin: 48px auto;
+  padding: 32px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.card-subtitle {
+  color: #636e72;
+  margin-bottom: 24px;
+  font-size: 1rem;
+}

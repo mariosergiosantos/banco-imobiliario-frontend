@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SalaService } from '../../../core/services/sala.service';
-import { MatCardActions } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -11,9 +13,11 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    MatCardActions,
     MatTableModule,
     MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatChipsModule,
     RouterModule,
   ],
   templateUrl: './listar-sala.component.html',
@@ -22,6 +26,7 @@ import { RouterModule } from '@angular/router';
 export class ListarSalaComponent implements OnInit {
   salas: any[] = [];
   mensagem: string = '';
+  displayedColumns: string[] = ['id', 'status', 'jogadores', 'dataCriacao', 'acoes'];
 
   constructor(private readonly salaService: SalaService) { }
 
@@ -30,14 +35,22 @@ export class ListarSalaComponent implements OnInit {
   }
 
   listarSalas() {
-    this.salaService.listarSalas().subscribe(
-      response => {
+    this.salaService.listarSalas().subscribe({
+      next: (response) => {
         this.salas = response;
       },
-      () => {
-        this.mensagem = 'Erro ao carregar as salas.';
+      error: () => {
+        this.mensagem = 'Não foi possível carregar as salas. Verifique sua conexão com o servidor.';
       }
-    );
+    });
   }
 
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'ABERTA': return 'accent';
+      case 'EM ANDAMENTO': return 'primary';
+      case 'ENCERRADA': return 'warn';
+      default: return '';
+    }
+  }
 }

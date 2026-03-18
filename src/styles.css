@@ -1,4 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  background-color: #f5f7fa;
+  color: #2d3436;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.main-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+  margin-bottom: 16px;
+}
+
+.mat-mdc-card {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid #e1e8ed;
+  margin-bottom: 24px;
+}
+
+.error {
+  color: #e74c3c;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.success {
+  color: #27ae60;
+  font-weight: 500;
+  margin-top: 12px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.mat-mdc-table {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mat-mdc-header-cell {
+  background-color: #f8f9fa;
+  font-weight: bold !important;
+  color: #495057 !important;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+button[mat-raised-button] {
+  padding: 8px 16px !important;
+  font-weight: 500;
+  border-radius: 6px !important;
+}

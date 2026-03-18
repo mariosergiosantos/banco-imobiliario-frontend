@@ -1,10 +1,46 @@
-<mat-card class="home-card">
-    <mat-card-title>Banco Imobiliário - Dashboard</mat-card-title>
+<div class="home-hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Bem-vindo ao Banco Imobiliário</h1>
+    <p class="hero-subtitle">Gerencie suas partidas, propriedades e transações com facilidade e precisão profissional.</p>
+    <div class="hero-actions">
+      <button mat-raised-button color="primary" [routerLink]="['/salas']" class="large-btn">
+        <mat-icon>meeting_room</mat-icon> Ver Salas
+      </button>
+      <button mat-raised-button color="accent" [routerLink]="['/salas/criar']" class="large-btn">
+        <mat-icon>add</mat-icon> Criar Nova Partida
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="features-grid">
+  <mat-card class="feature-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar color="primary">account_balance</mat-icon>
+      <mat-card-title>Gestão de Bancária</mat-card-title>
+    </mat-card-header>
     <mat-card-content>
-      <p>Escolha uma funcionalidade:</p>
-      <div class="button-container">
-        <button mat-raised-button color="primary" [routerLink]="['/salas']">Salas</button>
-      </div>
+      Controle o fluxo de caixa, pagamentos e recebimentos entre jogadores de forma transparente.
     </mat-card-content>
   </mat-card>
-  
+
+  <mat-card class="feature-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar color="accent">location_on</mat-icon>
+      <mat-card-title>Portfólio de Imóveis</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Acompanhe a posse de todas as propriedades e realize transferências rápidas.
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="feature-card">
+    <mat-card-header>
+      <mat-icon mat-card-avatar color="warn">history</mat-icon>
+      <mat-card-title>Histórico Auditável</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      Mantenha um registro completo de todas as transações realizadas durante a partida.
+    </mat-card-content>
+  </mat-card>
+</div>

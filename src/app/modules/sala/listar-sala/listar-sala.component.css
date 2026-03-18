@@ -1,9 +1,68 @@
-.mat-elevation-z8 {
-    width: 100%;
-    margin: 20px auto;
-  }
-  .error {
-    color: red;
-    text-align: center;
-    margin-top: 20px;
-  }
+.header-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.status-chip {
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+}
+
+.icon-small {
+  font-size: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 4px;
+}
+
+.player-count {
+  display: flex;
+  align-items: center;
+  color: #636e72;
+}
+
+.table-row:hover {
+  background-color: #f1f3f5;
+  transition: background-color 0.2s;
+}
+
+.empty-state {
+  padding: 64px 24px;
+  text-align: center;
+  color: #636e72;
+}
+
+.large-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.error-container {
+  padding: 48px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}

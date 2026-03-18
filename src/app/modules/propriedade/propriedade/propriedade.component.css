@@ -1,0 +1,58 @@
+.header-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.room-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.table-card {
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.color-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-right: 8px;
+}
+
+.prop-name {
+  display: flex;
+  align-items: center;
+}
+
+.owner-badge {
+  background-color: #2d3436;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.no-owner { color: #b2bec3; font-style: italic; }
+
+.transfer-form {
+  max-width: 200px;
+}
+
+.mat-mdc-form-field { font-size: 12px !important; }
+
+.hipotecada-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.hipotecada-status.sim { color: #d63031; }
+.hipotecada-status.nao { color: #27ae60; }

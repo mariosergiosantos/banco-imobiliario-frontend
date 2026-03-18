@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 import { Jogador } from '../../../core/models/jogador';
 
 @Component({
@@ -21,7 +23,9 @@ import { Jogador } from '../../../core/models/jogador';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule,
+    MatChipsModule
   ],
   templateUrl: './jogador.component.html',
   styleUrl: './jogador.component.css'
