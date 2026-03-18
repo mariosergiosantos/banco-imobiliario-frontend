@@ -9,7 +9,7 @@ export class JogadorService {
   constructor(private readonly http: HttpClient) {}
 
   listarJogadores(salaId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/salas/${salaId}/jogadores`);
+    return this.http.get(`${this.apiUrl}/jogadores/salas/${salaId}`);
   }
 
   adicionarJogador(salaId: string, nome: string): Observable<any> {

@@ -9,7 +9,7 @@ export class EmprestimoService {
   constructor(private readonly http: HttpClient) {}
 
   listarEmprestimos(salaId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/salas/${salaId}/emprestimos`);
+    return this.http.get(`${this.apiUrl}/emprestimos/salas/${salaId}`);
   }
 
   criarEmprestimo(emprestadorId: number, tomadorId: number, valor: number, juros: number): Observable<any> {
