@@ -35,7 +35,7 @@ export class PropriedadeComponent implements OnInit {
   jogadores: Jogador[] = [];
   salaId: string = '';
   mensagem: string = '';
-  displayedColumns: string[] = ['nome', 'valorCompra', 'cor', 'hipotecada', 'dono', 'acoes'];
+  displayedColumns: string[] = ['nome', 'valorCompra', 'hipotecada', 'dono', 'acoes'];
 
   constructor(
     private readonly propriedadeService: PropriedadeService,
@@ -55,7 +55,7 @@ export class PropriedadeComponent implements OnInit {
   listarPropriedades() {
     this.propriedadeService.listarPropriedades(this.salaId).subscribe({
       next: (response) => {
-        this.propriedades = response;
+        this.propriedades = response.propriedades;
       },
       error: () => {
         this.mensagem = 'Erro ao carregar propriedades.';

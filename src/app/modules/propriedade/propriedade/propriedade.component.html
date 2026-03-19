@@ -23,11 +23,6 @@
       <td mat-cell *matCellDef="let prop"> R$ {{ prop.valorCompra | number:'1.2-2' }} </td>
     </ng-container>
 
-    <ng-container matColumnDef="cor">
-      <th mat-header-cell *matHeaderCellDef> Cor </th>
-      <td mat-cell *matCellDef="let prop"> {{ prop.cor || '-' }} </td>
-    </ng-container>
-
     <ng-container matColumnDef="hipotecada">
       <th mat-header-cell *matHeaderCellDef> Hipotecada </th>
       <td mat-cell *matCellDef="let prop">
