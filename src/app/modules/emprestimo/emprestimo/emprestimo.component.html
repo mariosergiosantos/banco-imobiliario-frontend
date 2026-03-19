@@ -13,8 +13,8 @@
       <mat-card-content>
         <form (ngSubmit)="criarEmprestimo()" class="form-grid">
           <mat-form-field appearance="outline">
-            <mat-label>Credor (Quem Empresta)</mat-label>
-            <mat-select [(ngModel)]="novoEmprestimo.emprestadorId" name="emprestadorId">
+            <mat-label>Pagador (Quem Devolve)</mat-label>
+            <mat-select [(ngModel)]="novoEmprestimo.pagadorId" name="pagadorId">
               <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
                 {{ jogador.nome }}
               </mat-option>
@@ -22,8 +22,8 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Devedor (Quem Recebe)</mat-label>
-            <mat-select [(ngModel)]="novoEmprestimo.tomadorId" name="tomadorId">
+            <mat-label>Recebedor (Quem Empresta)</mat-label>
+            <mat-select [(ngModel)]="novoEmprestimo.recebedorId" name="recebedorId">
               <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
                 {{ jogador.nome }}
               </mat-option>
@@ -31,15 +31,15 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Valor (R$)</mat-label>
+            <mat-label>Valor Contratado (R$)</mat-label>
             <mat-icon matPrefix>monetization_on</mat-icon>
-            <input matInput type="number" [(ngModel)]="novoEmprestimo.valor" name="valor">
+            <input matInput type="number" [(ngModel)]="novoEmprestimo.valorContratado" name="valorContratado">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>Taxa Juros (%)</mat-label>
-            <mat-icon matPrefix>percent</mat-icon>
-            <input matInput type="number" [(ngModel)]="novoEmprestimo.juros" name="juros">
+            <mat-label>Valor Acordado (Com Juros) (R$)</mat-label>
+            <mat-icon matPrefix>monetization_on</mat-icon>
+            <input matInput type="number" [(ngModel)]="novoEmprestimo.valorAcordado" name="valorAcordado">
           </mat-form-field>
 
           <button mat-raised-button color="primary" type="submit" class="action-btn">
@@ -60,6 +60,15 @@
             <mat-select [(ngModel)]="pagamentoEmprestimo.emprestimoId" name="emprestimoId">
               <mat-option *ngFor="let emp of emprestimos" [value]="emp.id">
                 ID: {{ emp.id }} - De: {{ emp.emprestador.nome }} Para: {{ emp.tomador.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Pagador</mat-label>
+            <mat-select [(ngModel)]="pagamentoEmprestimo.pagadorId" name="pagadorId">
+              <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
+                {{ jogador.nome }}
               </mat-option>
             </mat-select>
           </mat-form-field>

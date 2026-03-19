@@ -1,0 +1,271 @@
+
+> banco-imobiliario-frontend@0.0.1 start
+> ng serve
+
+Component HMR has been enabled.
+If you encounter application reload issues, you can manually reload the page to bypass HMR and/or disable this feature with the `--no-hmr` command line option.
+Please consider reporting any issues you encounter here: https://github.com/angular/angular-cli/issues
+
+❯ Building...
+✔ Building...
+Browser bundles
+Initial chunk files  | Names              |  Raw size
+polyfills.js         | polyfills          |  90.20 kB |
+styles.css           | styles             |   8.89 kB |
+main.js              | main               |   5.88 kB |
+chunk-SG2LYVAH.js    | -                  | 894 bytes |
+
+                     | Initial total      | 105.86 kB
+
+Lazy chunk files     | Names              |  Raw size
+chunk-KD443CCM.js    | sala-module        |  54.14 kB |
+chunk-2EEI2L7A.js    | transacao-module   |  41.60 kB |
+chunk-XMWDNE2F.js    | emprestimo-module  |  30.26 kB |
+chunk-OCEOBPZY.js    | propriedade-module |  20.72 kB |
+chunk-4U54IBFC.js    | jogador-module     |  15.87 kB |
+chunk-BHLWRMYP.js    | home-module        |   9.29 kB |
+chunk-FXEHQR4N.js    | -                  |   1.23 kB |
+chunk-NVECPPOK.js    | -                  |   1.11 kB |
+
+
+Server bundles
+Initial chunk files  | Names              |  Raw size
+polyfills.server.mjs | polyfills.server   | 572.91 kB |
+main.server.mjs      | main.server        |   7.57 kB |
+server.mjs           | server             |   1.86 kB |
+chunk-VI6KR4OF.mjs   | -                  | 928 bytes |
+
+Lazy chunk files     | Names              |  Raw size
+chunk-SROSKZNS.mjs   | sala-module        |  54.17 kB |
+chunk-OA6KRPBT.mjs   | transacao-module   |  41.63 kB |
+chunk-SC5FF2RC.mjs   | emprestimo-module  |  30.29 kB |
+chunk-YM76HRFC.mjs   | propriedade-module |  20.76 kB |
+chunk-57ZQPRG3.mjs   | jogador-module     |  15.91 kB |
+chunk-2VM6YUJR.mjs   | home-module        |   9.32 kB |
+chunk-FIJN2LGM.mjs   | -                  |   1.26 kB |
+chunk-64GAPNEZ.mjs   | -                  |   1.15 kB |
+
+Application bundle generation complete. [7.020 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:30:51:
+[37m      30 │ ...  <span class="value">{{ sala.administrador?.[32mnome[37m || '-' }}</span>
+         ╵                                                 [32m~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:38:47:
+[37m      38 │         <span class="value">{{ sala.jogadores?.[32mlength[37m || 0 }}</span>
+         ╵                                                [32m~~~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  ➜  Local:   http://localhost:4200/
+NG02801: Angular detected that `HttpClient` is not configured to use `fetch` APIs. It's strongly recommended to enable `fetch` for applications that use Server-Side Rendering for better performance and compatibility. To enable `fetch`, add the `withFetch()` to the `provideHttpClient()` call at the root of the application.
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles
+Initial chunk files  | Names              |  Raw size
+polyfills.js         | polyfills          |  90.20 kB |
+styles.css           | styles             |   8.89 kB |
+main.js              | main               |   5.88 kB |
+chunk-SG2LYVAH.js    | -                  | 894 bytes |
+
+                     | Initial total      | 105.86 kB
+
+Lazy chunk files     | Names              |  Raw size
+chunk-KD443CCM.js    | sala-module        |  54.14 kB |
+chunk-2EEI2L7A.js    | transacao-module   |  41.60 kB |
+chunk-XMWDNE2F.js    | emprestimo-module  |  30.26 kB |
+chunk-OCEOBPZY.js    | propriedade-module |  20.72 kB |
+chunk-4U54IBFC.js    | jogador-module     |  15.87 kB |
+chunk-BHLWRMYP.js    | home-module        |   9.29 kB |
+chunk-FXEHQR4N.js    | -                  |   1.23 kB |
+chunk-NVECPPOK.js    | -                  |   1.11 kB |
+
+
+Server bundles
+Initial chunk files  | Names              |  Raw size
+polyfills.server.mjs | polyfills.server   | 572.91 kB |
+main.server.mjs      | main.server        |   7.57 kB |
+server.mjs           | server             |   1.86 kB |
+chunk-VI6KR4OF.mjs   | -                  | 928 bytes |
+
+Lazy chunk files     | Names              |  Raw size
+chunk-SROSKZNS.mjs   | sala-module        |  54.17 kB |
+chunk-OA6KRPBT.mjs   | transacao-module   |  41.63 kB |
+chunk-SC5FF2RC.mjs   | emprestimo-module  |  30.29 kB |
+chunk-YM76HRFC.mjs   | propriedade-module |  20.76 kB |
+chunk-57ZQPRG3.mjs   | jogador-module     |  15.91 kB |
+chunk-2VM6YUJR.mjs   | home-module        |   9.32 kB |
+chunk-FIJN2LGM.mjs   | -                  |   1.26 kB |
+chunk-64GAPNEZ.mjs   | -                  |   1.15 kB |
+
+Application bundle generation complete. [1.124 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:30:51:
+[37m      30 │ ...  <span class="value">{{ sala.administrador?.[32mnome[37m || '-' }}</span>
+         ╵                                                 [32m~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:38:47:
+[37m      38 │         <span class="value">{{ sala.jogadores?.[32mlength[37m || 0 }}</span>
+         ╵                                                [32m~~~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Application bundle generation failed. [0.280 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:30:51:
+[37m      30 │ ...  <span class="value">{{ sala.administrador?.[32mnome[37m || '-' }}</span>
+         ╵                                                 [32m~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:38:47:
+[37m      38 │         <span class="value">{{ sala.jogadores?.[32mlength[37m || 0 }}</span>
+         ╵                                                [32m~~~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mTS2345: Argument of type 'number' is not assignable to parameter of type 'string'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/propriedade/propriedade/propriedade.component.ts:77:50:
+[37m      77 │ ...rvice.transferirPropriedade([32mpropriedadeId[37m, novoDonoId).subscribe({
+         ╵                                [32m~~~~~~~~~~~~~[0m
+
+
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles
+Initial chunk files  | Names              |  Raw size
+polyfills.js         | polyfills          |  90.20 kB |
+styles.css           | styles             |   8.89 kB |
+main.js              | main               |   5.88 kB |
+chunk-SG2LYVAH.js    | -                  | 894 bytes |
+
+                     | Initial total      | 105.86 kB
+
+Lazy chunk files     | Names              |  Raw size
+chunk-KD443CCM.js    | sala-module        |  54.14 kB |
+chunk-6PFEAATX.js    | transacao-module   |  41.60 kB |
+chunk-XMWDNE2F.js    | emprestimo-module  |  30.26 kB |
+chunk-G2NKTEZW.js    | propriedade-module |  20.72 kB |
+chunk-4U54IBFC.js    | jogador-module     |  15.87 kB |
+chunk-BHLWRMYP.js    | home-module        |   9.29 kB |
+chunk-HKQKQVFA.js    | -                  |   1.23 kB |
+chunk-NVECPPOK.js    | -                  |   1.11 kB |
+
+
+Server bundles
+Initial chunk files  | Names              |  Raw size
+polyfills.server.mjs | polyfills.server   | 572.91 kB |
+main.server.mjs      | main.server        |   7.57 kB |
+server.mjs           | server             |   1.86 kB |
+chunk-VI6KR4OF.mjs   | -                  | 928 bytes |
+
+Lazy chunk files     | Names              |  Raw size
+chunk-SROSKZNS.mjs   | sala-module        |  54.17 kB |
+chunk-LVRNRM6J.mjs   | transacao-module   |  41.63 kB |
+chunk-SC5FF2RC.mjs   | emprestimo-module  |  30.29 kB |
+chunk-LGBZJ6MM.mjs   | propriedade-module |  20.76 kB |
+chunk-57ZQPRG3.mjs   | jogador-module     |  15.91 kB |
+chunk-2VM6YUJR.mjs   | home-module        |   9.32 kB |
+chunk-CO64ZFFW.mjs   | -                  |   1.26 kB |
+chunk-64GAPNEZ.mjs   | -                  |   1.15 kB |
+
+Application bundle generation complete. [0.612 seconds]
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:30:51:
+[37m      30 │ ...  <span class="value">{{ sala.administrador?.[32mnome[37m || '-' }}</span>
+         ╵                                                 [32m~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8107: The left side of this optional chain operation does not include 'null' or 'undefined' in its type, therefore the '?.' operator can be replaced with the '.' operator.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.html:38:47:
+[37m      38 │         <span class="value">{{ sala.jogadores?.[32mlength[37m || 0 }}</span>
+         ╵                                                [32m~~~~~~[0m
+
+  Error occurs in the template of component DetalharSalaComponent.
+
+    src/app/modules/sala/detalhar-sala/detalhar-sala.component.ts:22:15:
+[37m      22 │   templateUrl: [32m'./detalhar-sala.component.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+Page reload sent to client(s).
+❯ Changes detected. Rebuilding...
+✔ Changes detected. Rebuilding...
+Browser bundles
+Initial chunk files | Names       | Raw size
+main.js             | main        |  5.88 kB |
+
+Lazy chunk files    | Names       | Raw size
+chunk-PQEW4BZN.js   | sala-module | 54.05 kB |
+
+
+Server bundles
+Initial chunk files | Names       | Raw size
+main.server.mjs     | main.server |  7.57 kB |
+
+Lazy chunk files    | Names       | Raw size
+chunk-5TM2AQCG.mjs  | sala-module | 54.09 kB |
+
+Application bundle generation complete. [0.494 seconds]
+
+Component update sent to client(s).

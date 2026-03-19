@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Sala } from '../models/sala';
 
 @Injectable({ providedIn: 'root' })
 export class SalaService {
@@ -8,15 +9,23 @@ export class SalaService {
 
   constructor(private readonly http: HttpClient) {}
 
-  listarSalas(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
+  listarSalas(): Observable<Sala[]> {
+    return this.http.get<Sala[]>(`${this.apiUrl}`);
   }
 
-  criarSala(nomeJogador: string): Observable<any> {
-    return this.http.post(this.apiUrl, { nomeJogador });
+  criarSala(nomeJogadorAdm: string): Observable<Sala> {
+    return this.http.post<Sala>(this.apiUrl, { nomeJogadorAdm });
   }
 
-  obterSala(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${id}`);
+  obterSala(id: string): Observable<Sala> {
+    return this.http.get<Sala>(`${this.apiUrl}/${id}`);
+  }
+
+  iniciarJogo(salaId: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${salaId}/iniciar`, {});
+  }
+
+  finalizarJogo(salaId: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/${salaId}/finalizar`, {});
   }
 }

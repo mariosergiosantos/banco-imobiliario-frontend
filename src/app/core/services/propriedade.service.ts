@@ -12,7 +12,7 @@ export class PropriedadeService {
     return this.http.get(`${this.apiUrl}/salas/${salaId}/propriedades`);
   }
 
-  transferirPropriedade(propriedadeId: number, novoDonoId: number): Observable<any> {
+  transferirPropriedade(propriedadeId: string, novoDonoId: string): Observable<any> {
     return this.http.patch(`${this.apiUrl}/propriedades/${propriedadeId}/transferir`, { novoDonoId });
   }
 }

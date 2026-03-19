@@ -37,17 +37,18 @@ export class EmprestimoComponent implements OnInit {
   jogadores: Jogador[] = [];
   salaId: string = '';
   mensagem: string = '';
-  displayedColumns: string[] = ['id', 'emprestador', 'tomador', 'valor', 'juros', 'acoes'];
+  displayedColumns: string[] = ['id', 'emprestador', 'valor', 'acoes'];
 
   novoEmprestimo = {
-    emprestadorId: 0,
-    tomadorId: 0,
-    valor: 0,
-    juros: 0
+    pagadorId: '',
+    recebedorId: '',
+    valorContratado: 0,
+    valorAcordado: 0
   };
 
   pagamentoEmprestimo = {
-    emprestimoId: 0,
+    emprestimoId: '',
+    pagadorId: '',
     valor: 0
   };
 
@@ -86,17 +87,17 @@ export class EmprestimoComponent implements OnInit {
   }
 
   criarEmprestimo() {
-    const { emprestadorId, tomadorId, valor, juros } = this.novoEmprestimo;
-    if (!emprestadorId || !tomadorId || valor <= 0) {
+    const { pagadorId, recebedorId, valorContratado, valorAcordado } = this.novoEmprestimo;
+    if (!pagadorId || !recebedorId || valorContratado <= 0) {
       this.mensagem = 'Preencha os campos obrigatórios do empréstimo.';
       return;
     }
 
-    this.emprestimoService.criarEmprestimo(emprestadorId, tomadorId, valor, juros).subscribe({
+    this.emprestimoService.criarEmprestimo(this.salaId, pagadorId, recebedorId, valorContratado, valorAcordado).subscribe({
       next: () => {
         this.listarEmprestimos();
         this.mensagem = 'Empréstimo criado com sucesso!';
-        this.novoEmprestimo = { emprestadorId: 0, tomadorId: 0, valor: 0, juros: 0 };
+        this.resetNovoEmprestimo();
       },
       error: () => {
         this.mensagem = 'Erro ao criar empréstimo.';
@@ -105,21 +106,29 @@ export class EmprestimoComponent implements OnInit {
   }
 
   pagarEmprestimo() {
-    const { emprestimoId, valor } = this.pagamentoEmprestimo;
-    if (!emprestimoId || valor <= 0) {
-      this.mensagem = 'Informe o empréstimo e o valor a pagar.';
+    const { emprestimoId, pagadorId, valor } = this.pagamentoEmprestimo;
+    if (!emprestimoId || !pagadorId || valor <= 0) {
+      this.mensagem = 'Informe o empréstimo, pagador e o valor a pagar.';
       return;
     }
 
-    this.emprestimoService.pagarEmprestimo(emprestimoId, valor).subscribe({
+    this.emprestimoService.pagarEmprestimo(this.salaId, emprestimoId, pagadorId, valor).subscribe({
       next: () => {
         this.listarEmprestimos();
         this.mensagem = 'Pagamento de empréstimo realizado!';
-        this.pagamentoEmprestimo = { emprestimoId: 0, valor: 0 };
+        this.resetPagamentoEmprestimo();
       },
       error: () => {
         this.mensagem = 'Erro ao pagar empréstimo.';
       }
     });
+  }
+
+  resetNovoEmprestimo() {
+    this.novoEmprestimo = { pagadorId: '', recebedorId: '', valorContratado: 0, valorAcordado: 0 };
+  }
+
+  resetPagamentoEmprestimo() {
+    this.pagamentoEmprestimo = { emprestimoId: '', pagadorId: '', valor: 0 };
   }
 }

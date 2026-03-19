@@ -1,7 +1,7 @@
 import { Jogador } from './jogador';
 
 export interface Propriedade {
-  id: number;
+  id: string;
   nome: string;
   valorCompra: number;
   cor: string;

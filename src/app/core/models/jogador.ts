@@ -1,5 +1,5 @@
 export interface Jogador {
-  id: number;
+  id: string;
   nome: string;
   saldo: number;
 }
