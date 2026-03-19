@@ -9,7 +9,7 @@ export class PropriedadeService {
   constructor(private readonly http: HttpClient) {}
 
   listarPropriedades(salaId: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/salas/${salaId}/propriedades`);
+    return this.http.get(`${this.apiUrl}/salas/${salaId}`);
   }
 
   transferirPropriedade(propriedadeId: string, novoDonoId: string): Observable<any> {
