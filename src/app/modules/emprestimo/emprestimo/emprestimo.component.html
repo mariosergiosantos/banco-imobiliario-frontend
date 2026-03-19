@@ -1,114 +1,136 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Novo Empréstimo</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form (ngSubmit)="criarEmprestimo()" class="emprestimo-form">
-      <mat-form-field appearance="fill">
-        <mat-label>Emprestador</mat-label>
-        <mat-select [(ngModel)]="novoEmprestimo.emprestadorId" name="emprestadorId">
-          <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
-            {{ jogador.nome }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+<div class="header-dashboard">
+    <h1 class="room-title">Créditos e Empréstimos</h1>
+    <button mat-button color="primary" [routerLink]="['/salas', salaId]">
+      <mat-icon>arrow_back</mat-icon> Dashboard
+    </button>
+  </div>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Tomador</mat-label>
-        <mat-select [(ngModel)]="novoEmprestimo.tomadorId" name="tomadorId">
-          <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
-            {{ jogador.nome }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+  <div class="forms-grid">
+    <mat-card class="form-card">
+      <mat-card-header>
+        <mat-card-title>Novo Contrato de Empréstimo</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="criarEmprestimo()" class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Credor (Quem Empresta)</mat-label>
+            <mat-select [(ngModel)]="novoEmprestimo.emprestadorId" name="emprestadorId">
+              <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
+                {{ jogador.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Valor</mat-label>
-        <input matInput type="number" [(ngModel)]="novoEmprestimo.valor" name="valor">
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Devedor (Quem Recebe)</mat-label>
+            <mat-select [(ngModel)]="novoEmprestimo.tomadorId" name="tomadorId">
+              <mat-option *ngFor="let jogador of jogadores" [value]="jogador.id">
+                {{ jogador.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Juros (%)</mat-label>
-        <input matInput type="number" [(ngModel)]="novoEmprestimo.juros" name="juros">
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Valor (R$)</mat-label>
+            <mat-icon matPrefix>monetization_on</mat-icon>
+            <input matInput type="number" [(ngModel)]="novoEmprestimo.valor" name="valor">
+          </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit">Criar</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+          <mat-form-field appearance="outline">
+            <mat-label>Taxa Juros (%)</mat-label>
+            <mat-icon matPrefix>percent</mat-icon>
+            <input matInput type="number" [(ngModel)]="novoEmprestimo.juros" name="juros">
+          </mat-form-field>
 
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Pagar Empréstimo</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form (ngSubmit)="pagarEmprestimo()" class="pagamento-form">
-      <mat-form-field appearance="fill">
-        <mat-label>Empréstimo (ID)</mat-label>
-        <mat-select [(ngModel)]="pagamentoEmprestimo.emprestimoId" name="emprestimoId">
-          <mat-option *ngFor="let emp of emprestimos" [value]="emp.id">
-            ID: {{ emp.id }} - De: {{ emp.emprestador.nome }} Para: {{ emp.tomador.nome }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" class="action-btn">
+            <mat-icon>handshake</mat-icon> Gerar Contrato
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Valor a Pagar</mat-label>
-        <input matInput type="number" [(ngModel)]="pagamentoEmprestimo.valor" name="valorPagamento">
-      </mat-form-field>
+    <mat-card class="form-card">
+      <mat-card-header>
+        <mat-card-title>Liquidar Dívida</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="pagarEmprestimo()" class="form-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Selecionar Empréstimo Ativo</mat-label>
+            <mat-select [(ngModel)]="pagamentoEmprestimo.emprestimoId" name="emprestimoId">
+              <mat-option *ngFor="let emp of emprestimos" [value]="emp.id">
+                ID: {{ emp.id }} - De: {{ emp.emprestador.nome }} Para: {{ emp.tomador.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <button mat-raised-button color="accent" type="submit">Pagar</button>
-    </form>
-  </mat-card-content>
-</mat-card>
+          <mat-form-field appearance="outline">
+            <mat-label>Valor Amortização (R$)</mat-label>
+            <mat-icon matPrefix>money</mat-icon>
+            <input matInput type="number" [(ngModel)]="pagamentoEmprestimo.valor" name="valorPagamento">
+          </mat-form-field>
 
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Empréstimos Ativos</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <table mat-table [dataSource]="emprestimos" class="mat-elevation-z8">
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let emp"> {{ emp.id }} </td>
-      </ng-container>
+          <button mat-raised-button color="accent" type="submit" class="action-btn">
+            <mat-icon>payments</mat-icon> Realizar Pagamento
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-      <ng-container matColumnDef="emprestador">
-        <th mat-header-cell *matHeaderCellDef> Emprestador </th>
-        <td mat-cell *matCellDef="let emp"> {{ emp.emprestador.nome }} </td>
-      </ng-container>
+  <mat-card class="table-card">
+    <mat-card-header>
+      <mat-card-title>Livro de Registro de Empréstimos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="emprestimos" class="full-width">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID Contrato </th>
+          <td mat-cell *matCellDef="let emp"> <span class="loan-id">L#{{ emp.id }}</span> </td>
+        </ng-container>
 
-      <ng-container matColumnDef="tomador">
-        <th mat-header-cell *matHeaderCellDef> Tomador </th>
-        <td mat-cell *matCellDef="let emp"> {{ emp.tomador.nome }} </td>
-      </ng-container>
+        <ng-container matColumnDef="emprestador">
+          <th mat-header-cell *matHeaderCellDef> Fluxo Financeiro </th>
+          <td mat-cell *matCellDef="let emp">
+            <div class="transfer-chain">
+              <strong>{{ emp.emprestador.nome }}</strong>
+              <mat-icon class="icon-small text-muted">arrow_forward</mat-icon>
+              <strong>{{ emp.tomador.nome }}</strong>
+            </div>
+          </td>
+        </ng-container>
 
-      <ng-container matColumnDef="valor">
-        <th mat-header-cell *matHeaderCellDef> Valor Original </th>
-        <td mat-cell *matCellDef="let emp"> R$ {{ emp.valor | number:'1.2-2' }} </td>
-      </ng-container>
+        <ng-container matColumnDef="tomador">
+            <th mat-header-cell *matHeaderCellDef> - </th>
+            <td mat-cell *matCellDef="let emp"> - </td>
+        </ng-container>
 
-      <ng-container matColumnDef="juros">
-        <th mat-header-cell *matHeaderCellDef> Juros </th>
-        <td mat-cell *matCellDef="let emp"> {{ emp.juros }}% </td>
-      </ng-container>
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef> Principal </th>
+          <td mat-cell *matCellDef="let emp">
+            <span class="loan-value">R$ {{ emp.valor | number:'1.2-2' }}</span>
+            <span class="juros-badge">+{{ emp.juros }}% Juros</span>
+          </td>
+        </ng-container>
 
-      <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef> Ações </th>
-        <td mat-cell *matCellDef="let emp">
-            -
-        </td>
-      </ng-container>
+        <ng-container matColumnDef="juros">
+            <th mat-header-cell *matHeaderCellDef> - </th>
+            <td mat-cell *matCellDef="let emp"> - </td>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let emp">
+            <span class="loan-status">ATIVO</span>
+          </td>
+        </ng-container>
 
-    <p *ngIf="mensagem" [class.error]="mensagem.includes('Erro')" [class.success]="!mensagem.includes('Erro')">
-      {{ mensagem }}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button color="primary" [routerLink]="['/salas', salaId]">Voltar</button>
-  </mat-card-actions>
-</mat-card>
+        <tr mat-header-row *matHeaderRowDef="['id', 'emprestador', 'valor', 'acoes']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['id', 'emprestador', 'valor', 'acoes'];" class="table-row"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <div *ngIf="mensagem" class="error-toast">
+    {{ mensagem }}
+  </div>

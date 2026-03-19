@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { Propriedade } from '../../../core/models/propriedade';
 import { Jogador } from '../../../core/models/jogador';
 
@@ -23,7 +24,8 @@ import { Jogador } from '../../../core/models/jogador';
     MatButtonModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   templateUrl: './propriedade.component.html',
   styleUrl: './propriedade.component.css'

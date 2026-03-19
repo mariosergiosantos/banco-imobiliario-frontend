@@ -1,0 +1,65 @@
+.header-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.room-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.pagamento-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.pagamento-form mat-form-field {
+  flex: 1 1 200px;
+}
+
+.pagamento-btn {
+  height: 56px;
+  margin-top: -20px;
+  font-weight: 600 !important;
+}
+
+.table-card {
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.origem-destino {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tipo-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #f1f3f5;
+  color: #495057;
+}
+
+.prop-link {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.valor-transacao {
+  font-weight: 600;
+  font-family: 'Roboto Mono', monospace;
+}
+.valor-transacao.positivo { color: #27ae60; }
+.valor-transacao.negativo { color: #d63031; }

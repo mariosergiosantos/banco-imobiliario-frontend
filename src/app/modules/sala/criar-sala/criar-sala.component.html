@@ -1,19 +1,28 @@
 <mat-card class="criar-sala-card">
   <mat-card-header>
-    <mat-card-title>Criar Nova Sala</mat-card-title>
+    <mat-card-title class="card-title">Criar Nova Partida</mat-card-title>
+    <p class="card-subtitle">Preencha os dados abaixo para iniciar uma nova mesa de Banco Imobiliário.</p>
   </mat-card-header>
   <mat-card-content>
     <form (ngSubmit)="criarSala()">
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Nome do Jogador (Admin)</mat-label>
-        <input matInput [(ngModel)]="nomeJogador" name="nomeJogador" required>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Seu Nome de Jogador</mat-label>
+        <mat-icon matPrefix>person</mat-icon>
+        <input matInput [(ngModel)]="nomeJogador" name="nomeJogador" required placeholder="Ex: João Silva">
+        <mat-hint>Você será o administrador desta sala.</mat-hint>
       </mat-form-field>
 
       <div class="actions">
-        <button mat-raised-button color="primary" type="submit">Criar</button>
-        <button mat-button color="secondary" [routerLink]="['/salas']">Cancelar</button>
+        <button mat-button color="secondary" type="button" [routerLink]="['/salas']">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!nomeJogador">
+          Criar Sala
+        </button>
       </div>
     </form>
-    <p *ngIf="mensagem" class="error">{{ mensagem }}</p>
+
+    <div *ngIf="mensagem" class="error-container">
+      <mat-icon color="warn">error</mat-icon>
+      <p class="error">{{ mensagem }}</p>
+    </div>
   </mat-card-content>
 </mat-card>

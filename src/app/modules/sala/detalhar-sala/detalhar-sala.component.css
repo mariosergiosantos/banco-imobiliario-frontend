@@ -1,0 +1,108 @@
+.header-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.room-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.status-badge.aberta { background-color: #e3f2fd; color: #1976d2; }
+.status-badge.em-andamento { background-color: #f3e5f5; color: #7b1fa2; }
+.status-badge.encerrada { background-color: #ffebee; color: #c62828; }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.info-item:last-child { border-bottom: none; }
+
+.info-item .label { color: #636e72; font-weight: 500; }
+.info-item .value { font-weight: 600; color: #2d3436; }
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.button-grid button {
+  padding: 12px !important;
+  font-weight: 600 !important;
+  height: 60px;
+}
+
+.loan-btn { background-color: #6c757d !important; color: white !important; }
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .details-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.admin-badge {
+  font-size: 0.65rem;
+  background-color: #2c3e50;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.saldo-value { font-family: 'Roboto Mono', monospace; font-weight: 600; }
+.saldo-value.negative { color: #d63031; }
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.view-more { text-align: right; padding-top: 12px; }
+
+.error-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #ff7675;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  margin: 0;
+  z-index: 2000;
+}

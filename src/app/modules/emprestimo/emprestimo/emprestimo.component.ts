@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { Emprestimo } from '../../../core/models/emprestimo';
 import { Jogador } from '../../../core/models/jogador';
 
@@ -25,7 +26,8 @@ import { Jogador } from '../../../core/models/jogador';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   templateUrl: './emprestimo.component.html',
   styleUrl: './emprestimo.component.css'
