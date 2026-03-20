@@ -71,7 +71,7 @@ export class PropriedadeComponent implements OnInit {
     });
   }
 
-  transferirPropriedade(propriedadeId: number, novoDonoId: number) {
+  transferirPropriedade(propriedadeId: string, novoDonoId: string) {
     if (!novoDonoId) return;
 
     this.propriedadeService.transferirPropriedade(propriedadeId, novoDonoId).subscribe({
